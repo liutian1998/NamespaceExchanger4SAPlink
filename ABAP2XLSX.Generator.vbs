@@ -34,10 +34,10 @@
 
   '-Main----------------------------------------------------------------
     PrefixOld = "Z"
-    PrefixNew = "/GKV/CA03_"
+    PrefixNew = "/MNS/MPA_"
 
     Set xmlDoc = CreateObject("MSXML.DOMDocument")
-    FileName = "C:\Schnell\Pool\FV_Aerzte\Excel\Community\ABAP2XLSX_V_7_0_3.nugg"
+    FileName = "ABAP2XLSX_V_7_0_3.nugg"
     If IsObject(xmlDoc) Then
       xmlDoc.Async = False
       If xmlDoc.Load(FileName) Then
