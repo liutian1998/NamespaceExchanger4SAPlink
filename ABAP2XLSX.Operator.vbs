@@ -1,5 +1,9 @@
 
 '-Begin-----------------------------------------------------------------
+'-
+'- Hint: Swap string $TMP to your package manually
+'-
+'-----------------------------------------------------------------------
 
   '-Directives----------------------------------------------------------
     Option Explicit
@@ -13,7 +17,7 @@
     Dim Lines, i, LogFile
 
   '-Main----------------------------------------------------------------
-    FileName = "ABAP2XLSX_V_7_0_3.nugg"
+    FileName = "ABAP2XLSX_V_7_0_5.nugg"
     Set FSO = CreateObject("Scripting.FileSystemObject")
     If IsObject(FSO) Then
       Set CSVFile = FSO.OpenTextFile(FileName & ".csv", ForReading)
