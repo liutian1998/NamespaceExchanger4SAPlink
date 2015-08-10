@@ -160,6 +160,17 @@
                 Signal = "0"
               End If
 
+            Case "XSLT"
+              NodeName = xmlNode.getAttribute("XSLTDESC")
+              NewNodeName = PrefixNew + Right(NodeName, _
+                Len(NodeName) - Len(PrefixOld))
+              NewNodeName = CorrectNodeName(NewNodeName)
+              If Len(NewNodeName) > 30 Then
+                Signal = "1"
+              Else
+                Signal = "0"
+              End If
+
           End Select
 
           Lines(UBound(Lines)) = CStr(UBound(Lines) - 1) & ";" & _
