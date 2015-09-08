@@ -4,59 +4,6 @@
   #-Load assemblies-----------------------------------------------------
     [Reflection.Assembly]::LoadWithPartialName("'Microsoft.VisualBasic") > $Null
 
-  #-Function Correct-ProgName-------------------------------------------
-    Function Correct-ProgName ([String] $NodeName) {
-
-      If ($NodeName.Length -ge 12) {
-        If ($NodeName.Substring(0, 12) -eq "ZDEMO_TECHED") {
-          If ([Int]$NodeName.Substring(12, $NodeName.Length - 12) -lt 10) {
-            $NewNodeName = "/GKV/CA03DT0" + $NodeName.Substring(12, $NodeName.Length - 12)
-          }
-          Else {
-            $NewNodeName = "/GKV/CA03DT" + $NodeName.Substring(12, $NodeName.Length - 12)
-          }
-        }
-      }
-
-      If ($NodeName.Length -ge 11) {
-        If ($NodeName.Substring(0, 11) -eq "ZDEMO_EXCEL") {
-          $IsNum = [Microsoft.VisualBasic.Information]::IsNumeric($NodeName.Substring(11, $NodeName.Length - 11))
-          If ($IsNum -eq $True) {
-            If ([Int]$NodeName.Substring(11, $NodeName.Length - 11) -lt 10) {
-              $NewNodeName = "/GKV/CA03DE0" + $NodeName.Substring(11, $NodeName.Length - 11)
-            }
-            Else {
-              $NewNodeName = "/GKV/CA03DE" + $NodeName.Substring(11, $NodeName.Length - 11)
-            }
-          }
-        }
-      }
-
-      Switch ($NodeName) {
-        "ZDEMO_EXCEL_OUTPUTOPT_INCL" {
-          $NewNodeName = "/GKV/CA03_DEMO_OUTPUTOPT_INCL"
-        }
-        "ZDEMO_EXCEL" {
-          $NewNodeName = "/GKV/CA03DE00"
-        }
-        "ZDEMO_CALENDAR_CLASSES" {
-          $NewNodeName = "/GKV/CA03_DEMO_CALENDAR_CLAZES"
-        }
-        "ZDEMO_CALENDAR" {
-          $NewNodeName = "/GKV/CA03DCAL"
-        }
-        "ZANGRY_BIRDS" {
-          $NewNodeName = "/GKV/CA03ANBI"
-        }
-        "ZABAP2XLSX_DEMO_SHOW" {
-          $NewNodeName = "/GKV/CA03ABDS"
-        }
-      }
-
-      Return $NewNodeName
-    
-    }
-
   #-Function Correct-NodeName-------------------------------------------
     Function Correct-NodeName([String] $NodeName) {
 
@@ -179,8 +126,8 @@
           
           "PROG" {
             $NodeName = $xmlNode.NAME
-            $NewNodeName = Correct-ProgName $NodeName
-            If ($NewNodeName.Length -gt 13) {
+            $NewNodeName = Correct-NodeName $NodeName
+            If ($NewNodeName.Length -gt 30) {
               $Signal = 1
             }
             Else {
