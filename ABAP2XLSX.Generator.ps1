@@ -30,8 +30,8 @@
     Function Main () {
 
       $PrefixOld = "Z"
-      $PrefixNew = "/GKV/CA03_"
-      $FileName = "C:\Schnell\Pool\FV_Aerzte\Excel\Community3\ABAP2XLSX_V_7_0_5.nugg"
+      $PrefixNew = "/MNS/MPA_"
+      $FileName = "ABAP2XLSX_V_7_0_5.nugg"
 
       $xmlDoc = [XML] (Get-Content -Path $FileName)
       If ($xmlDoc -eq $Null) { 
