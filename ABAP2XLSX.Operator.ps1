@@ -1,15 +1,14 @@
 
 #-Begin-----------------------------------------------------------------
-#-
-#- Hint: Swap string $TMP to your package manually
-#-
-#-----------------------------------------------------------------------
 
-  $XMLFileName = "ABAP2XLSX_V_7_0_5.nugg"
+  $PrefixNew = "/MNS/MPA"
+
+  $XMLFileName = "ABAP2XLSX_V_7_0_6.nugg"
   $XMLFileNameNew = $XMLFileName + ".new"
   $CSVFileName = $XMLFileName + ".csv"
   $CSVFile = Import-Csv -Path $CSVFileName -Delimiter ";"
-  [String]$XMLFile = (Get-Content -Path $XMLFileName) -Join "'r'n"
+  [String]$XMLFile = (Get-Content -Path $XMLFileName -Encoding UTF8) -Join "'r'n"
+  $XMLFile = $XMLFile.Replace("`$TMP", $PrefixNew)
   $CSVFile | ForEach-Object {
     $OldName = $_.OldName; $NewName = $_.NewName
     Write-Host $OldName " > " $NewName
@@ -29,6 +28,6 @@
       $XMLFile = $XMLFile -ireplace $OldName, $NewName
     }
   }
-  Set-Content -Path $XMLFileNameNew -Value $XMLFile.Replace("'r'n", "$([char]0x0D)$([char]0x0A)")
+  Set-Content -Path $XMLFileNameNew -Value $XMLFile.Replace("'r'n", "$([char]0x0D)$([char]0x0A)") -Encoding UTF8
 
 #-End-------------------------------------------------------------------
