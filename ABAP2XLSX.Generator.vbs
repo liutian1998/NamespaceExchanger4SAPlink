@@ -1,5 +1,11 @@
 
 '-Begin-----------------------------------------------------------------
+'-
+'- Important hint
+'- This script is deprecated, please use instead the PowerShell script
+'- ABAP2XLSX.Generator.ps1
+'-
+'-----------------------------------------------------------------------
 
   '-Directives----------------------------------------------------------
     Option Explicit
