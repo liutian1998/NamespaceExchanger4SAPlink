@@ -11,17 +11,19 @@
             End Of TestStruc.
 
     "-Variables---------------------------------------------------------
-      Data l_str_Test Like TestStruc.
-      Data l_tab_Test Like Standard Table Of TestStruc.
-      Data l_rcl_excel Type Ref To ZCL_EXCEL.
-      Data l_rcl_worksheet Type Ref To ZCL_EXCEL_WORKSHEETS.
-      Data l_rif_excel_writer Type Ref To ZIF_EXCEL_WRITER.
-      Data l_cnt_Lines Type i Value 0.
-      Data l_xlsx_datastream Type XString.
-      Data l_dTab Type Table Of x255.
-      Data l_len Type i Value 0.
-      Data l_t0 Type i Value 0.
-      Data l_t1 Type i Value 0.
+      Data:
+        l_str_Test Like TestStruc,
+        l_tab_Test Like Standard Table Of TestStruc,
+        l_rcl_excel Type Ref To ZCL_EXCEL,
+        l_rcl_worksheet Type Ref To ZCL_EXCEL_WORKSHEETS,
+        l_rif_excel_writer Type Ref To ZIF_EXCEL_WRITER,
+        l_cnt_Lines Type i,
+        l_xlsx_datastream Type XString,
+        l_dTab Type Table Of x255,
+        l_len Type i,
+        l_t0 Type i,
+        l_t1 Type i
+        .
 
     "-Main--------------------------------------------------------------
       Do 16384 Times.
